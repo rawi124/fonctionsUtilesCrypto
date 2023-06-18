@@ -31,10 +31,13 @@ def amicaux(bits) :
     recherche les nombres amicaux inferieur a 2**bits
     """
     amicaux, traite = [], []
-    i = 2
+    nb1 = 2
     maxi = 2**bits
     while nb1 < maxi:
         somme_d_p = som_div_propres(nb1)
+        #cette ligne pour ignorer le nombre lui meme, a n est pas ami avec a
+        #et pour ignorer aussi si a et b sont amicaux, a est traité et b aussi
+        #c est la raison pour laquelle on stocke nb1 dans traite
         if nb1 == som_div_propres(somme_d_p) and nb1 != somme_d_p and somme_d_p not in traite :
             traite += [nb1]
             amicaux += [(nb1,somme_d_p),]
